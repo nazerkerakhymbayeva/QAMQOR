@@ -1,0 +1,17 @@
+# Core scientific stack
+numpy==1.26.4
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+
+# Gradient-boosted-tree baselines
+xgboost>=2.0
+lightgbm>=4.0
+catboost>=1.2
+
+# Sequence baseline (LSTM). Install only if you run scripts/04_run_lstm.py.
+tensorflow>=2.12
+
+# Optional: plotting for the figures in the notebooks
+matplotlib>=3.7
+seaborn>=0.12
