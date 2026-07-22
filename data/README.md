@@ -1,35 +1,31 @@
 # Data
 
-Place the released anonymized keypoint tables here:
+The anonymized QAMQOR dataset is publicly available and can be downloaded from:
 
-```
-data/appBased146Openpose.csv     # OpenPose keypoints + annotations + group IDs
-data/appBased136Mediapipe.csv    # MediaPipe keypoints + annotations + group IDs
+📥 **Dataset Download:**  
+https://drive.google.com/file/d/1UQJuaWf6UNXjkE68PjnCZa7iqTv3PIiY/view?usp=sharing
+
+After downloading, place the extracted CSV files in the `data/` directory:
+
+```text
+data/
+├── appBased146Openpose.csv      # OpenPose keypoints + annotations + group IDs
+└── appBased136Mediapipe.csv     # MediaPipe keypoints + annotations + group IDs
 ```
 
-The raw video recordings associated with the QAMQOR dataset cannot be made
-publicly available, because participant consent did not permit future sharing of
-identifiable video data. To support reproducibility while protecting participant
-privacy, this repository releases the anonymized keypoint data extracted with
-OpenPose and MediaPipe, the engagement annotations, and the predefined
-evaluation splits.
+The raw video recordings associated with the QAMQOR dataset cannot be made publicly available because participant consent did not permit sharing identifiable video data. To support reproducible research while protecting participant privacy, this repository provides:
+
+- ✅ OpenPose keypoint data
+- ✅ MediaPipe keypoint data
+- ✅ Engagement annotations
+- ✅ Predefined evaluation splits
 
 ## Expected schema
 
-Each row is one video frame. Columns fall into three groups:
+Each row corresponds to a single video frame.
 
-| Group        | Columns | Notes |
-|--------------|---------|-------|
-| Keypoints    | names containing `face`, `pose`/`body`, or `hand` | Per-landmark coordinates/confidence; substring match selects each modality. |
-| Annotations  | `engagement_x`, `engagement_bin` | Multiclass and binary engagement labels. |
-| Group IDs    | `childID`, `sessionID`, `appID`, `frameID` | Define the subject-, session-, and activity-independent splits. |
-
-The `frameID` column preserves temporal order within a session, which the
-sequence baselines (LSTM, temporal XGBoost) rely on.
-
-## Annotation methodology
-
-Engagement labels were produced by trained annotators from the video recordings.
-Report the number of annotators, the labeling protocol, and inter-annotator
-agreement (e.g. Cohen's or Fleiss' kappa) in the manuscript's annotation section;
-`engagement_bin` is the binarization of the multiclass `engagement_x` label.
+| Group | Columns | Description |
+|-------|---------|-------------|
+| Keypoints | `face`, `pose`/`body`, `hand` | Landmark coordinates and confidence scores |
+| Annotations | `engagement_x`, `engagement_bin` | Multi-class and binary engagement labels |
+| Group IDs | `childID`, `sessionID`, `appID`, `frameID` | Subject-, session-, and activity-independent splits |
