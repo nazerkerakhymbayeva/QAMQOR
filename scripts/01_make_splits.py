@@ -5,10 +5,6 @@ Reads the raw anonymized keypoint table(s) and writes the serialized train/test
 arrays for every combination of split x modality x task under ``splits/``, using
 the canonical naming scheme in :func:`qamqor.config.split_path`.
 
-Running this stage once fixes the exact partitions used by all downstream models,
-which is what allows different classifiers -- and future methods contributed by
-other groups -- to be compared on identical data.
-
 Examples
 --------
     python scripts/01_make_splits.py                     # both tools, both tasks
