@@ -1,18 +1,5 @@
 #!/usr/bin/env python3
-"""Stage 4 -- LSTM sequence baseline (Mediapipe modalities).
-
-Provides a recurrent reference point that consumes the raw temporal window rather
-than engineered summary statistics. Each frame is classified from the ``window``
-frames preceding it; the label vector is shifted by ``window`` to stay aligned
-with the generated sequences.
-
-The architecture and training schedule are fixed (LSTM(64) -> Dropout(0.3) ->
-Dense(32, ReLU) -> Dropout(0.2) -> output; Adam; early stopping on validation
-loss with patience 10; learning-rate reduction on plateau). The output head is
-task-dependent, matching the paper: a single sigmoid unit with binary
-cross-entropy for the binary task, and a softmax over the classes with sparse
-categorical cross-entropy for the multiclass task. All random seeds are set, so
-runs are reproducible up to the nondeterminism inherent in GPU kernels.
+"""Stage 4 -- LSTM sequence baseline.
 
 Examples
 --------
@@ -116,7 +103,7 @@ def run_one(split, modality, task, window, epochs, batch_size, splits_dir, verbo
 
 def parse_args():
     p = argparse.ArgumentParser(description="Run the LSTM sequence baseline.")
-    p.add_argument("--tool", choices=list(config.RAW_CSV), default="Mediapipe",
+    p.add_argument("--tool", choices=list(config.RAW_CSV), default="OpenPose", 
                    help="Tool whose modalities to use (default: Mediapipe).")
     p.add_argument("--task", choices=config.TASKS, default=None)
     p.add_argument("--window", type=int, default=config.WINDOW)
@@ -155,7 +142,7 @@ def main():
                       f"Acc={metrics['Accuracy']:.4f} F1={metrics['F1-score']:.4f} "
                       f"({elapsed:.1f}s)")
 
-    out = os.path.join(args.results_dir, "QAMQOR_lstm.csv")
+    out = os.path.join(args.results_dir, "QAMQOR_lstm_openpose.csv")
     pd.DataFrame(rows).to_csv(out, index=False)
     print(f"\nSaved: {out}  ({len(rows)} rows)")
 
