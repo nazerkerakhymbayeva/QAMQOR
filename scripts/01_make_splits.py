@@ -3,7 +3,7 @@
 
 Reads the raw anonymized keypoint table(s) and writes the serialized train/test
 arrays for every combination of split x modality x task under ``splits/``, using
-the canonical naming scheme in :func:`qamqor.config.split_path`.
+the canonical naming scheme in :func:`core.config.split_path`.
 
 Examples
 --------
@@ -20,8 +20,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from qamqor import config
-from qamqor.data import build_modalities, load_raw, make_splits_for_modality, save_split
+from core import config
+from core.data import build_modalities, load_raw, make_splits_for_modality, save_split
 
 
 def parse_args():
