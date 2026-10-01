@@ -30,10 +30,10 @@ from sklearn.utils.class_weight import compute_sample_weight
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from qamqor import config
-from qamqor.data import load_split
-from qamqor.features import temporal_features
-from qamqor.metrics import evaluate
+from core import config
+from core.data import load_split
+from core.features import temporal_features
+from core.metrics import evaluate
 
 N_ROUNDS = 300
 MAX_BIN = 256
