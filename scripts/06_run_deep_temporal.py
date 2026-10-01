@@ -36,7 +36,7 @@ Memory-safe windowing
 ---------------------
 Windows are streamed lazily with ``tf.keras.utils.timeseries_dataset_from_array``
 (the i-th sequence is ``X[i:i+window]`` with label ``y[i+window]``, matching
-``qamqor.features.create_sequences``), so peak memory is ``O(batch*window*d)``
+``core.features.create_sequences``), so peak memory is ``O(batch*window*d)``
 rather than ``O(N*window*d)``.
 
 Only dependency is TensorFlow/Keras, which the LSTM baseline already requires.
@@ -70,9 +70,9 @@ from sklearn.utils.class_weight import compute_class_weight
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from qamqor import config
-from qamqor.data import load_split
-from qamqor.metrics import evaluate
+from core import config
+from core.data import load_split
+from core.metrics import evaluate
 
 os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
 
