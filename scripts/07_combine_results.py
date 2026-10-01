@@ -31,7 +31,7 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from qamqor import config
+from core import config
 
 KEY = ["Split", "Modality", "Model", "tool", "class"]
 BAL_SUFFIX = "-bal"
