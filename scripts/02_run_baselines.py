@@ -34,9 +34,9 @@ from sklearn.utils.class_weight import compute_sample_weight
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from qamqor import config
-from qamqor.data import load_split
-from qamqor.metrics import evaluate
+from core import config
+from core.data import load_split
+from core.metrics import evaluate
 
 # Optional heavy dependencies are imported lazily so the script degrades
 # gracefully if one is unavailable in the environment.
