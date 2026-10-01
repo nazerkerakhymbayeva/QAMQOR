@@ -61,7 +61,7 @@ system must handle children and activities it has never seen.
 | Temporal XGBoost | GBT + temporal features | window = 10 (current frame + rolling mean/std + delta) |
 | LSTM | recurrent | window = 10 raw-frame sequences |
 
-All hyper-parameters are fixed in [`qamqor/config.py`](qamqor/config.py) and in
+All hyperparameters are fixed in [`main_qam/config.py`](core/config.py) and in
 the per-script model factories, and all seeds are set, so results are
 reproducible up to GPU-kernel nondeterminism for the LSTM.
 
@@ -143,22 +143,20 @@ python scripts/07_statistical_tests.py --metric Accuracy  --task binary \
 
 ```
 QAMQOR/
-├── qamqor/                 # shared, importable core
+├── core/                 # shared, importable core
 │   ├── config.py           # seeds, splits, modalities, codes, file naming
 │   ├── data.py             # loading, modality selection, split generation
 │   ├── features.py         # temporal features + sequence windows
 │   └── metrics.py          # the six benchmark metrics (shared by all models)
 ├── scripts/                # 01–07 pipeline stages (CLI, argparse)
-├── data/                   # place the anonymized keypoint CSVs here
-├── splits/                 # generated .npy partitions (git-ignored)
-├── results/                # generated result tables
+├── data/                   # the anonymized keypoint CSVs
 ├── requirements.txt
 └── run_all.sh
 ```
 
 ## Notes on reproducibility
 
-* A single file-naming scheme (`qamqor/config.py::split_path`) is used for both
+* A single file-naming scheme (`core/config.py::split_path`) is used for both
   tools and both tasks, so the generated partitions are unambiguous.
 * All metrics use one shared `evaluate()` with **macro-averaged** precision,
   recall, and F1 for **both** the binary and multiclass tasks, matching the
