@@ -35,9 +35,9 @@ from xgboost import XGBClassifier
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from qamqor import config
-from qamqor.data import build_modalities, load_raw
-from qamqor.metrics import evaluate
+from core import config
+from core.data import build_modalities, load_raw
+from core.metrics import evaluate
 
 
 def run_children_cv(df, modalities, target, task, tool, n_folds, group_col):
