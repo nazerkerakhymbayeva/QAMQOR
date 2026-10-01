@@ -21,10 +21,10 @@ from sklearn.preprocessing import LabelEncoder
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from qamqor import config
-from qamqor.data import load_split
-from qamqor.features import create_sequences
-from qamqor.metrics import evaluate
+from core import config
+from core.data import load_split
+from core.features import create_sequences
+from core.metrics import evaluate
 
 # TensorFlow is imported lazily (inside the functions that need it) so that the
 # command-line interface -- including ``--help`` -- works even in environments
