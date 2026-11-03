@@ -180,5 +180,5 @@ averaging is in effect.
 
 ## Citation
 
-If you use QAMQOR, please cite the accompanying paper (Frontiers in Robotics and
-AI). A `CITATION.cff` / BibTeX entry will be added on publication.
+If you use QAMQOR, please cite the accompanying paper 
+Rakhymbayeva N, Tungatarova A, Telisheva Z and Sandygulova A (2026) QAMQOR: a benchmark dataset for engagement recognition in robot-assisted autism therapy. Front. Robot. AI 13:1868211. doi: 10.3389/frobt.2026.1868211.
